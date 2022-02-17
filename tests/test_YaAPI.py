@@ -9,4 +9,5 @@ class TestFunctions(unittest.TestCase):
 
     def test_name_conflict(self):
         with self.assertRaises(ValueError) as ex:
-            YaAPI.new_folder('same_name')
+            YaAPI.new_folder('any_name')
+        self.assertEqual('Папка с таким названием уже существует', ex.exception.args[0])
